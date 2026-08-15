@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>AI Attendance System</title>
+</head>
+<body>
+<h1>AI Attendance Monitoring System</h1>
+
+<h2>Register Student</h2>
+<form method="post" action="/register">
+<input name="student_id" placeholder="Student ID" required>
+<input name="name" placeholder="Name" required>
+<button type="submit">Register</button>
+</form>
+
+<h2>Students</h2>
+<ul>
+{% for s in students %}
+<li>{{s[0]}} - {{s[1]}}</li>
+{% endfor %}
+</ul>
+
+<h2>Attendance Records</h2>
+<table border="1">
+<tr><th>Student ID</th><th>Date</th><th>Time</th></tr>
+{% for a in attendance %}
+<tr>
+<td>{{a[0]}}</td>
+<td>{{a[1]}}</td>
+<td>{{a[2]}}</td>
+</tr>
+{% endfor %}
+</table>
+
+<p>Place student face images in static/faces/ with filename = student_id.jpg</p>
+<p>Run: python face_attendance.py</p>
+</body>
+</html>
